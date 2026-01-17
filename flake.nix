@@ -35,7 +35,9 @@
             system = "x86_64-linux";
             modules = [
               # host specific config
-              { config.networking.hostName = host; role = "server"; }  # or "agent"
+              config {
+                networking.hostName = host;
+              }
               ./hosts/${host}/configuration.nix
 #              (inputs.secrets.hostSecrets.${host})
 

@@ -4,7 +4,7 @@
   config = {
 
     # Used in K3s installation decision
-    role = "server";
+    server.enable = true;
 
     users = [ "nickm" ];
     adminUsers = [ "nickm" ];

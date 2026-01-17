@@ -1,16 +1,11 @@
-{ lib, role, ... }:
-
+{ config, lib, pkgs, ... }:
 {
-  assertions = [
-    {
-      assertion = role == "server" || role == "agent";
-      message = "role must be server or agent";
-    }
+  # Import both server and agent modules unconditionally
+  imports = [
+    ./server.nix
+    ./agent.nix
   ];
 
-  imports = [
-    (if role == "server"
-     then ./server.nix
-     else ./agent.nix)
-  ];
+  server.enable = lib.mkDefault true;
+  agent.enable = lib.mkDefault true;
 }
