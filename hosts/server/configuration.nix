@@ -6,8 +6,17 @@
     # Used in K3s installation decision
     server.enable = true;
 
-    users = [ "nickm" ];
-    adminUsers = [ "nickm" ];
+    # Users
+    users.users = {
+      nickm = {
+          isNormalUser = true;
+          description = "Nick";
+          extraGroups = [ "wheel" "networkmanager" ];
+          shell = pkgs.zsh;
+        };
+      };
+    # For admin privileges
+    users.groups.wheel.members = [ "nickm" ];
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
