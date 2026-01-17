@@ -36,7 +36,7 @@
             modules = [
               # host specific config
               { config.networking.hostName = host; }
-              ./hosts/${host}/configuration.nix
+              ./hosts/${host}/default.nix
 #              (inputs.secrets.hostSecrets.${host})
 
               ./modules/k3s/default.nix
