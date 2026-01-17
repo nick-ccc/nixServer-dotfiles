@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   imports = [];
 
@@ -25,10 +25,8 @@
     allowedUDPPorts = [ 8472 ];
   };
 
-  services.k3s = {
-    enable = true;
-    role = "agent";
-    tokenFile = config.sops.secrets.k3s-token.path;
-    serverAddr = "https://SERVER-NODE-IP:6443";
-  };
+  services.k3s.enable = lib.mkIf config.agent.enable true;
+  services.k3s.role = lib.mkIf config.agent.enable "agent";
+  services.k3s.tokenFile = lib.mkIf config.agent.enable config.sops.secrets.k3s-token.path;
+  services.k3s.serverAddr = lib.mkIf config.agent.enable "https://SERVER-NODE-IP:6443";
 }

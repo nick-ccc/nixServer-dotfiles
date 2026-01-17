@@ -1,20 +1,21 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    lunarvim
-    nodejs
-    python3
-    ripgrep
-    fd
+  environment.systemPackages = with pkgs; [
+      lunarvim
+      nodejs
+      python3
+      ripgrep
+      fd
   ];
 
-  home.sessionVariables = {
-    EDITOR = "lvim";
+  environment.variables = {
+     EDITOR = "lvim";
   };
 
+
   # Optional: ensure config dir exists
-  home.activation.ensureLvimDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    mkdir -p "$HOME/.config/lvim"
+  system.activationScripts.ensureLvimDir.text = ''
+    mkdir -p /home/nickm/.config/lvim
   '';
 }

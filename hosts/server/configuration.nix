@@ -12,7 +12,6 @@
           isNormalUser = true;
           description = "Nick";
           extraGroups = [ "wheel" "networkmanager" ];
-          shell = pkgs.zsh;
         };
       };
     # For admin privileges
@@ -90,7 +89,7 @@
     networking.firewall.allowedTCPPorts = [ 6443 ];
     networking.firewall.allowedUDPPorts = [ 8472 ];
     networking.networkmanager.enable = true;
-    networking.hostName = "nixosGMK1";
+    networking.hostName = "server";
 
     # Remove bloat
     programs.nano.enable = lib.mkForce false;
