@@ -27,4 +27,4 @@ I want to push any updates, and or expand to new hardware.
 
 # Installation
 
-`sudo nixos-rebuild switch --flake ~/nix-config#server1`
+`sudo nixos-rebuild switch --flake ~@`

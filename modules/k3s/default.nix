@@ -10,7 +10,7 @@
 
   imports = [
     (if role == "server"
-     then ./server/server.nix
-     else ./agent/agent.nix)
+     then ./server.nix
+     else ./agent.nix)
   ];
 }

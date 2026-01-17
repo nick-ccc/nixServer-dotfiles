@@ -44,7 +44,6 @@
               ./modules/interface/default.nix
             ];
             specialArgs = {
-              inherit pkgs-stable;
               inherit inputs;
             };
           };
