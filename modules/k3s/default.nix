@@ -2,7 +2,7 @@
 
 with lib;
 
-{
+{ 
   options.server.enable = mkOption {
     type = types.bool;
     default = false;

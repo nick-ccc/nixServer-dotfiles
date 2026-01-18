@@ -1,6 +1,8 @@
 { config, lib, ... }:
 {
-  imports = [];
+  imports = [
+    ./serverModules/helm.nix
+  ];
 
   networking.firewall = {
     allowedTCPPorts = [

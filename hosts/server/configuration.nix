@@ -86,8 +86,6 @@
     boot.plymouth.enable = true;
 
     # Networking
-    networking.firewall.allowedTCPPorts = [ 6443 ];
-    networking.firewall.allowedUDPPorts = [ 8472 ];
     networking.networkmanager.enable = true;
     networking.hostName = "server";
 
