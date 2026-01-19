@@ -5,6 +5,7 @@
 
     # Used in K3s installation decision
     server.enable = true;
+    services.helm.enable = true;
 
     # Users
     users.users = {
@@ -26,7 +27,6 @@
       git
       openssl
       sops
-      helm
       btop
     ];
 

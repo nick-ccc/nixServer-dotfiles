@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   imports = [
-    ./serverModules/helm.nix
+    ../helm/helm.nix
   ];
 
   networking.firewall = {
