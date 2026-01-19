@@ -22,7 +22,13 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Packages
-    environment.systemPackages = with pkgs; [ git ];
+    environment.systemPackages = with pkgs; [ 
+      git
+      openssl
+      sops
+      helm
+      btop
+    ];
 
     # Journal
     services.journald.extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";

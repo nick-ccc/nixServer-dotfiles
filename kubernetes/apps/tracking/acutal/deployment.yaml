@@ -21,25 +21,18 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-          livenessProbe:
-            exec:
-              command:
-                - sh
-                - -c
-                - node src/scripts/health-check.js
-            initialDelaySeconds: 20
-            periodSeconds: 60
-            timeoutSeconds: 10
-            failureThreshold: 3
-          readinessProbe:
-            exec:
-              command:
-                - sh
-                - -c
-                - node src/scripts/health-check.js
-            initialDelaySeconds: 20
-            periodSeconds: 60
+            - name: tls
+              mountPath: /etc/tls
+              readOnly: true
+          env:
+            - name: ACTUAL_HTTPS_KEY
+              value: /etc/tls/tls.key
+            - name: ACTUAL_HTTPS_CERT
+              value: /etc/tls/tls.crt
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: actual-pvc
+        - name: tls
+          secret:
+            secretName: tracking-secret-tls

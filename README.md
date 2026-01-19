@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://nixos.org/">
+  <a href="https://nixos.org/blog/announcements/2025/nixos-2511/">
     <img 
         src=".assets/nixos-25.11.webp"  
         alt="Gopher Doc" 
