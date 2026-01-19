@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vaultwarden-server
+  namespace: tracking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vaultwarden-server
+  template:
+    metadata:
+      labels:
+        app: vaultwarden-server
+    spec:
+      containers:
+        - name: vaultwarden-server
+          image: vaultwarden/server:latest
+          ports: 
+            - containerPort: 80
+          volumeMounts:
+            - name: tls
+              mountPath: /etc/tls
+              readOnly: true
+          env:
+            - name: ROCKET_TLS
+              value: '{certs="/etc/tls/tls.crt", key="/etc/tls/tls.key"}'
+            - name: ADMIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tracking-auth-token
+                  key: auth-token
+      volumes:
+        - name: tls
+          secret:
+            secretName: tracking-secret-tls
