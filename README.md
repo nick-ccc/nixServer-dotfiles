@@ -14,17 +14,43 @@
 
 ***
 
-<p align="center">
-  <a href="https://k3s.io/"><img alt="k3s" src="https://img.shields.io/badge/k3s-e6ac00?logo=k3s&logoColor=white&style=for-the-badge"></a>
-  <a href="https://nixos.org/"><img alt="nix" src="https://img.shields.io/badge/Nix-5277C3?logo=nixos&logoColor=white&style=for-the-badge"></a>
-</p>
+# The Homelab
 
-## Purpose
+This repository contains the full configuration and operational definition of my personal homelab environment, 
+built on NixOS and k3s. The goal of this homelab is to provide a reproducible, declarative, 
+and production-inspired platform for running self-hosted services, learning kubernetes, and experimenting 
+with NixOS.
 
-This is the repository for managing the current state of my homelab as IaC. In case
-I want to push any updates, and or expand to new hardware.
+### Nodes
+
+
+<div align="center">
+
+|   Name   | Role       |                                                       Hardware                                                       |          Notes           |
+|:--------:|:----------:|:--------------------------------------------------------------------------------------------------------------------:|:------------------------:|
+| `server` | k3s server | [GMK mini pc](https://www.gmktec.com/products/nucbox-g3-plus-enhanced-performance-mini-pc-with-intel-n150-processor) | Control plane and worker |
+</div>
+
+> [!NOTE]
+> 
+> Currently, the lab run off of a single node cluster with an intel N150 processor, with eventual plans to either add
+> more mini-pcs or pi based solution on a single network switch. That said there is no worker node profile setup yet
+> due to the single node setup.
+
+### Services
+```yaml
+ingress:
+secrets-manager:
+apps:
+    tracking:
+      purpose: Apps that help keep track of things, including finances, passwords, and more.
+      deployments: [actual, vaultwarden]
+
+```
 
 
 # Installation
 
-`sudo nixos-rebuild switch --flake ~@`
+With nix installed, based on target node run
+
+`sudo nixos-rebuild switch --flake .#<node>`

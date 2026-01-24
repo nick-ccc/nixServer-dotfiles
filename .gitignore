@@ -1,2 +1,2 @@
-./secrets/flake.nix
+kubernetes/secrets/flake.nix
 .idea/
