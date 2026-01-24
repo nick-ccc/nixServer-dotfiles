@@ -8,11 +8,12 @@
     services.helm.enable = true;
 
     # Users
+    users.groups.k3sconfig = {};
     users.users = {
       nickm = {
           isNormalUser = true;
           description = "Nick";
-          extraGroups = [ "wheel" "networkmanager" ];
+          extraGroups = [ "wheel" "networkmanager" "k3sconfig" ];
         };
       };
     # For admin privileges
@@ -29,6 +30,11 @@
       sops
       btop
     ];
+
+    # Allows for rootless access
+    environment.variables = {
+      KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
+    };
 
     # Journal
     services.journald.extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
