@@ -39,18 +39,24 @@ with NixOS.
 
 ### Services
 ```yaml
-ingress:
+helm-managed-at-build-time:
+    ingress-contoller:
+        - name: tailscale
+          helmrelease: https://pkgs.tailscale.com/helmcharts
 secrets-manager:
-apps:
+    - sops
+kubernetes-apps:
     tracking:
-      purpose: Apps that help keep track of things, including finances, passwords, and more.
-      deployments: [actual, vaultwarden]
-
+      - purpose: Apps that help keep track of things, including finances, passwords, and more.
+        deployments:
+            - name: Actual
+              purpose: Tracking finnances
+            - name: Vaultwarden
+              purpose: Tracking passwords and accounts
 ```
-
 
 # Installation
 
 With nix installed, based on target node run
 
-`sudo nixos-rebuild switch --flake .#<node>`
+`sudo nixos-rebuild switch --flake .#<name>`
