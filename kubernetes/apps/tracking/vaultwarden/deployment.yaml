@@ -23,8 +23,6 @@ spec:
               mountPath: /etc/tls
               readOnly: true
           env:
-            - name: ROCKET_TLS
-              value: '{certs="/etc/tls/tls.crt", key="/etc/tls/tls.key"}'
             - name: ADMIN_TOKEN
               valueFrom:
                 secretKeyRef:

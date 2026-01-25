@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   config = {
@@ -6,14 +6,14 @@
     # Used in K3s installation decision
     server.enable = true;
     services.helm.enable = true;
+    services.tailscaleHelm.enable = true;
 
     # Users
-    users.groups.k3sconfig = {};
     users.users = {
       nickm = {
           isNormalUser = true;
           description = "Nick";
-          extraGroups = [ "wheel" "networkmanager" "k3sconfig" ];
+          extraGroups = [ "wheel" "networkmanager" ];
         };
       };
     # For admin privileges
@@ -24,14 +24,15 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Packages
-    environment.systemPackages = with pkgs; [ 
+    environment.systemPackages = with pkgs; [
       git
       openssl
       sops
       btop
+      k9s
     ];
 
-    # Allows for rootless access
+    # Needed for for rootless access
     environment.variables = {
       KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
     };

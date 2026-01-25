@@ -18,7 +18,6 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
       lib = nixpkgs.lib;
 
       hosts = builtins.filter (x: x != null) (

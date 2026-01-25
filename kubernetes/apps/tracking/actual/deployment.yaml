@@ -24,11 +24,6 @@ spec:
             - name: tls
               mountPath: /etc/tls
               readOnly: true
-          env:
-            - name: ACTUAL_HTTPS_KEY
-              value: /etc/tls/tls.key
-            - name: ACTUAL_HTTPS_CERT
-              value: /etc/tls/tls.crt
       volumes:
         - name: data
           persistentVolumeClaim:

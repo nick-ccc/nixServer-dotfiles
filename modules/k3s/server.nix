@@ -2,6 +2,7 @@
 {
   imports = [
     ../helm/helm.nix
+    ../helm/helm-tailscale.nix
   ];
 
   networking.firewall = {
@@ -32,6 +33,6 @@
     "--embedded-registry"
     "--disable metrics-server"
     "--write-kubeconfig-mode 640"
-    "--write-kubeconfig-group k3sconfig"
+    "--write-kubeconfig-group wheel"
   ]; 
 }
