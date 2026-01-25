@@ -18,7 +18,6 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
       lib = nixpkgs.lib;
 
       hosts = builtins.filter (x: x != null) (
@@ -37,11 +36,8 @@
               # host specific config
               { config.networking.hostName = host; }
               ./hosts/${host}/default.nix
-#              (inputs.secrets.hostSecrets.${host})
-
               ./modules/k3s/default.nix
               ./modules/interface/default.nix
-#              ./modules/monitoring/default.nix
             ];
             specialArgs = {
               inherit inputs;

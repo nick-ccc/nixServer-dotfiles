@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - pvc.yaml
   - deployment.yaml
-  - svc.yml
+  - svc.yaml
+  - ingress.yaml

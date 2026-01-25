@@ -1,7 +1,8 @@
 { config, lib, ... }:
 {
   imports = [
-    ./serverModules/helm.nix
+    ../helm/helm.nix
+    ../helm/helm-tailscale.nix
   ];
 
   networking.firewall = {
@@ -25,10 +26,13 @@
 
   services.k3s.enable = lib.mkIf config.server.enable true;
   services.k3s.role = lib.mkIf config.server.enable "server";
+  services.k3s.configPath = lib.mkIf config.server.enable "/home/nickm/.kube/config"; #@TODO change this to var user
   # services.k3s.tokenFile = lib.mkIf config.server.enable config.sops.secrets.k3s-token.path;
   services.k3s.images = lib.mkIf config.server.enable [ config.services.k3s.package.airgap-images ];
   services.k3s.extraFlags = lib.mkIf config.server.enable [
     "--embedded-registry"
     "--disable metrics-server"
+    "--write-kubeconfig-mode 640"
+    "--write-kubeconfig-group wheel"
   ]; 
 }

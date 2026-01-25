@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   config = {
 
     # Used in K3s installation decision
     server.enable = true;
+    services.helm.enable = true;
+    services.tailscaleHelm.enable = true;
 
     # Users
     users.users = {
@@ -22,13 +24,18 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Packages
-    environment.systemPackages = with pkgs; [ 
+    environment.systemPackages = with pkgs; [
       git
       openssl
       sops
-      helm
       btop
+      k9s
     ];
+
+    # Needed for for rootless access
+    environment.variables = {
+      KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
+    };
 
     # Journal
     services.journald.extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
