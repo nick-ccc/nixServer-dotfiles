@@ -44,8 +44,9 @@ in
       values = {
         oauth = {
           clientId = tailscaleValues.clientId;
-          clientSecret = tailscaleValues.audience;
+          clientSecret = tailscaleValues.clientSecret;
         };
+        redeployNonce = "2026-01-26";
       };   
     };
   };

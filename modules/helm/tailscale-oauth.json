@@ -1,16 +1,16 @@
 {
-	"clientId": "",
-	"audience": "",
+	"clientId": "ENC[AES256_GCM,data:lf73pLVrZ7RDAVAnNzDBXeQ=,iv:LE66mUJZamvQCjk8+XY/6ekP0smNUqdfG+g1D4cYVtY=,tag:ty21tIUIvsj2pTmclf20wg==,type:str]",
+	"clientSecret": "ENC[AES256_GCM,data:3fh4LHtBFE2uzWs29XzVT6ckNO/gKvwuRE2YSr8rMsDf8nY/4fxxzIsCVT8OFVxeg5mirBIJ1nVJGlSHfUM/,iv:jVlK1sxhBdruFWS5RWZ427bMqxXm4qUsaQ9SX321Fkw=,tag:Wfx8cWaqwE0eaeL/WGwzBg==,type:str]",
 	"sops": {
 		"age": [
 			{
 				"recipient": "age1jc9ll5h5gmcgx0sdd5ldrqcn43efafkcrn5a472f86rh7e2kcgks0rg53u",
-				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAxSWJjc3NkWjZxU2dJcG8z\nZTFDMG1YZGMxMno0VEJScUJNd3ZSWjdqcWpjCjQ1WE9VOFhNdUFFQ2dxaExDeURx\nWmpBcW1SQTNIZ1h2dEc3dWZLRWdCUGMKLS0tIEVWY1k1NVVreGdxNjUrUUdwSUxw\nVEJHci9kWFA1UUduOWtpbjh6T0VoSXcKXS6RhFcL2y8CfJ1zYCSWPyamK+y7vNs2\nwwFZQNBgtPlxIbIQ6PbjQly7n8aeiM/ABa490c8c2FC+WZmGBlXFQw==\n-----END AGE ENCRYPTED FILE-----\n"
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqZ0ExZktHRXN2Rk5wSmEv\nMFJoeFZSMUNlQjhVeG1TRE9vc1pMVVRzSTN3CmtwdENrYmhiRVc1MmIwSlRPaUEr\nWkpVV0FCWlQ3Yy9yNjVUdlVNdFdhMHMKLS0tIEU3bkRKQ205N0JlMXZYSWd4aWZL\ndG9WWEMwYnhzdTFRbHR2TlIxR0NyNDgKU8jXtE6kFVMvzPLZYsB1JFj7tswqH8WJ\nV7vUZbkuWB1gx83XhJhCOSE22R16c4q2oO7002yP20hmdyrJPWNoag==\n-----END AGE ENCRYPTED FILE-----\n"
 			}
 		],
-		"lastmodified": "2026-01-25T19:47:34Z",
-		"mac": "ENC[AES256_GCM,data:dwrMjEs+mwkuKsqfV90bvPpnTF5vfEUREc5p90tODKUta5hy56w+xDoBpAx3+ynfFPGYJ9Tj7wnNcqK3+thMATPRYtYTAMvg3zo0MEJ/QBav3H5FyfCfab8h+Nu06W60JO7rFX1K3fo7JnSIUCIJOvQJF3uWQBACQK/wk5xLpP0=,iv:GX1yg3rAQjd6smpjTkGUXsOYISgiOO4STyqBTghKrG4=,tag:erh0i5i/mvWWXRCyj5tPNw==,type:str]",
-		"encrypted_regex": "^(data|stringData)$",
+		"lastmodified": "2026-01-26T14:03:59Z",
+		"mac": "ENC[AES256_GCM,data:4RzVmwO+FPkLNZHanqkWBLzzyccl5W54OADsANLUKfgykNYfjUn6Yx/e3jmUTsQ/3y0c2aqQMHqMa0UQEB2KjENKLRSevbELSocLQ9jvVp6eJufdNBTonEr2pkqQaDOHQK0N7fNmTSbv19LlN/MXT1EsPPilGftt8bUf4utMaYo=,iv:rVTndODWxjhBVBiSPRnwyfwhTCdLTUyJFBNRiUl0twM=,tag:3NHadoHq4nRiKUDArnyB2w==,type:str]",
+		"encrypted_regex": "^(client.*)$",
 		"version": "3.11.0"
 	}
 }
