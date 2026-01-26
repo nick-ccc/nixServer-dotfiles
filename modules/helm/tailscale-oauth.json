@@ -1,6 +1,6 @@
 {
-	"clientId": "kDVhNcsvUk11CNTRL",
-	"audience": " tskey-client-kDVhNcsvUk11CNTRL-jSMFghTJrtWZj9uwUvgPtW6z2U5rLUPsV",
+	"clientId": "",
+	"audience": "",
 	"sops": {
 		"age": [
 			{
